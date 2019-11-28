@@ -16,7 +16,7 @@ function listMovies() {
             <tr>
                 <img src="${movie.posterPath}" width="200" height="250"/>
             </tr>
-            
+            <tr></tr>
             <tr>
                 <button class="btn btn-primary" onclick="addFavourite(${movie.id})">Add To Favourite</button>
             </tr>
