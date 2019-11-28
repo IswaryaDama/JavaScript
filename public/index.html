@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Movie Cruiser</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
 </head>
-<body>
+<body onload = "getMovies()">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-6"> <!-- Bootstrap classes can be modified as desired -->
@@ -28,9 +28,9 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="/js/script.js"></script>
+	<script type="text/javascript" src="/public/js/script.js"></script>
 	<script type="text/javascript">
-		getMovies();
+		getMovies(event);
 		getFavourites();
 	</script>
 </body>

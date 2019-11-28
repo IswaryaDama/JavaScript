@@ -1,6 +1,34 @@
 {
   "movies": [
+    {
+      "id": 1,
+      "title": "Avengers",
+      "posterPath": "/public/images/Avengers_endgame.jpeg",
+      "Rating": "10/10",
+      "releaseDate": "April 26, 2019"
+    },
+    {
+      "id": 2,
+      "title": "Frozen2",
+      "posterPath": "/public/images/Frozen2.jpeg",
+      "Rating": "8.5/10",
+      "releaseDate": "Dec 26, 2019"
+    }
   ],
   "favourites": [
+    {
+      "id": 1,
+      "title": "Avengers",
+      "posterPath": "/public/images/Avengers_endgame.jpeg",
+      "Rating": "10/10",
+      "releaseDate": "April 26, 2019"
+    },
+    {
+      "id": 2,
+      "title": "Frozen2",
+      "posterPath": "/public/images/Frozen2.jpeg",
+      "Rating": "8.5/10",
+      "releaseDate": "Dec 26, 2019"
+    }
   ]
 }
