@@ -1,18 +1,24 @@
 body {
-	margin: 0;
+  margin: 0;
+  background-color: aquamarine;
 }
-ul li
+/*ul li
 {
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
-  background-color:aquamarine;
+  justify-content:center; 
   text-decoration-style: solid;
+  
   margin-right:40%;
-  margin-bottom: 1%;
+  
 }
-ul li img
+ul li div img
 {
-  height: 60vh;
-  width:  60vw;
+  align-content: center;
+  margin-bottom: 5%;
 }
+ul li div button
+{
+  display: flex;
+  justify-content: center;
+}*/

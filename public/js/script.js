@@ -4,12 +4,30 @@ let moviesURL = 'http://localhost:3000/movies';
 let favURL = 'http://localhost:3000/favourites';
 /* Function to return movies */
 function listMovies() {
-	let movHtml = movies.map(movie => {
+    let mov = document.getElementById('moviesList');
+	let inner = '';
+	let movHtml = movies.forEach(elem => {
+		inner = inner + `
+        <div class="row">
+        
+		<div class="col-12 col-md-6">
+		<img src="${elem.posterPath}"  class="img-response img-thumbnail" />
+        </div>	
+        <div class="col-12 col-md-6">
+		<div><h4> ${elem.title} </h4></div>	
+		<div><button onclick="addFavourite(${elem.id})" type="button"
+		class="btn btn-primary" >Add to favourite</button></div>
+		</div>
+		</div>
+		<br>`;
+		mov.innerHTML = inner;
+	});
+	return movHtml;
+}
+	/*let movHtml = movies.map(movie => {
 		return `
         <tr>
-            <table>
-            <tr>
-            </tr>
+            <table>           
             <tr>
             <h4>${movie.title}</h4>
             </tr>
@@ -26,7 +44,7 @@ function listMovies() {
 		});
 	let mov = document.getElementById('moviesList');
 	mov.innerHTML = movHtml;
-}
+}*/
 /* Function to get list of movies */
 function getMovies() {
 	return fetch(moviesURL)
@@ -40,7 +58,7 @@ function getMovies() {
 }
 /* Function to return favourites */
 function listFavourites() {
-	let favHtml = favourites.map(movie => {
+	/*let favHtml = favourites.map(movie => {
 		return  `
         <tr>
             <table>
@@ -58,7 +76,25 @@ function listFavourites() {
     `;
 		});
 	let fav = document.getElementById('favouritesList');
-	fav.innerHTML = favHtml;
+    fav.innerHTML = favHtml;*/
+    let mov = document.getElementById('favouritesList');
+	let inner = '';
+	let movHtml = favourites.forEach(elem => {
+		inner = inner + `
+        <div class="row">        
+		<div class="col-12 col-md-6">
+		<img src="${elem.posterPath}"  class="img-response img-thumbnail" />
+        </div>
+        <div class="col-12 col-md-6">
+		<div><h4> ${elem.title} </h4></div>		
+		<div><button onclick="removeFavourite(${elem.id})" type="button"
+		class="btn btn-danger" >Remove from favourite</button></div>
+		</div>
+		</div>
+		<br>`;
+		mov.innerHTML = inner;
+	});
+	return movHtml;
 }
 /* Function to get list of favourites */
 function getFavourites() {
@@ -80,7 +116,9 @@ let fav = favourites.filter(f => {
     return f.id === id;
   });
 	 if(fav.length > 0) {
-		throw new Error('Movie is already added to favourites');
+        alert("alreday added to Favourites");
+        throw new Error('Movie is already added to favourites');
+        
 	}
 	else {
 		return fetch(favURL, {
@@ -95,6 +133,20 @@ let fav = favourites.filter(f => {
 			return favourites;
 		});
 	}
+}
+function removeFavourite(id){
+let fev=favourites.filter(f=>{
+    return f.id==id;
+});
+return fetch(favURL+"/"+id,{
+    method:'DELETE'
+}).then(function(response){
+    return response.json();
+}).then(function(fev1){
+    //favourites.pop(fev1);
+    getFavourites();
+    return favourites;
+})
 }
 module.exports = {
 	getMovies,
